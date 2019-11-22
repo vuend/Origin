@@ -104,6 +104,8 @@ public class HelloWorld {
             case 7:
                 System.out.println("Today is Sunday.");
                 break;
+            default:
+                System.out.println("THAT'S NOT A RANGE FROM 1 TO 7 YOU IDIOT!")
         }
 
         String classRole = "Admin";
