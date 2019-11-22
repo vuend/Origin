@@ -1,4 +1,4 @@
-This is just a simple script of code that I learned from youtube.
+This is just a simple lines of code that I learned from youtube.
 
 Channel: https://www.youtube.com/channel/UCWv7vMbMWH4-V0ZXdmDpPBA
 
