@@ -124,12 +124,15 @@ public class HelloWorld {
 
         System.out.println("Number: ");
         int inputNum = scanNum.nextInt();
-
-        if (inputNum %5 == 0)
+        if (inputNum %5 == 0 && inputNum %3 ==0)
+            System.out.println("FuzzBuzz");
+        else if (inputNum %5 == 0)
             System.out.println("Fuzz");
-        else
+        else if (inputNum %3 == 0)
             System.out.println("Buzz");
-        
+        else
+            System.out.println(inputNum);
+
         //little project
 
         String classRole = "Admin";
