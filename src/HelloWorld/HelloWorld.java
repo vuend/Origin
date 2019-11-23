@@ -79,9 +79,19 @@ public class HelloWorld {
             default: //doesn't need a break statement as this is end of the switch block and will automatically jump out.
                 System.out.println("You're a guest.");
         }
+
+        byte role1 = 1;
+        switch (role1) {
+            case 1:
+                System.out.println("Number 1.");
+                break;
+            case 2:
+                System.out.println("Number 2.");
+        }
+
         //break is optional!
 
-        int dayNumber = 4;
+        int dayNumber = 8;
         switch (dayNumber) {
             case 1:
                 System.out.println("Today is Monday.");
@@ -105,8 +115,22 @@ public class HelloWorld {
                 System.out.println("Today is Sunday.");
                 break;
             default:
-                System.out.println("THAT'S NOT A RANGE FROM 1 TO 7 YOU IDIOT!")
+                System.out.println("THAT ISN'T IN A RANGE OF 1 TO 7 YOU IDIOT");
         }
+
+        //Buzz and Fuzz?
+
+        Scanner scanNum = new Scanner(System.in);
+
+        System.out.println("Number: ");
+        int inputNum = scanNum.nextInt();
+
+        if (inputNum %5 == 0)
+            System.out.println("Fuzz");
+        else
+            System.out.println("Buzz");
+        
+        //little project
 
         String classRole = "Admin";
         if (classRole == "Admin")
@@ -124,8 +148,6 @@ public class HelloWorld {
         String name = checkName.nextLine();
         System.out.println("Welcome, " + name);
         System.out.println("Please input your score,\nScore: ");
-
-
         byte testGrade = checkGrade.nextByte();
         if (testGrade > 50 && testGrade < 75) {
             System.out.println("Congratulation! You passed the test!");
