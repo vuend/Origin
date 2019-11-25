@@ -120,25 +120,25 @@ public class HelloWorld {
 
         //Buzz and Fuzz?
 
-        Scanner scanNum = new Scanner(System.in);
-
-        System.out.println("Number: ");
-        int inputNum = scanNum.nextInt();
-        if (inputNum %5 == 0 && inputNum %3 ==0)
-            System.out.println("FuzzBuzz");
-        else if (inputNum %5 == 0)
-            System.out.println("Fuzz");
-        else if (inputNum %3 == 0)
+        Scanner inputNumber = new Scanner(System.in);
+        System.out.println("Please insert a number range from 1 to 128.\nNumber: ");
+        byte inputNum1 = inputNumber.nextByte();
+        System.out.println("You inserted " + inputNum1);
+        if (inputNum1 %5 == 0 && inputNum1 %3 == 0)
+            System.out.println("BuzzFuzz");
+        else if (inputNum1 %5 == 0)
             System.out.println("Buzz");
+        else if (inputNum1 %3 == 0)
+            System.out.println("Fuzz");
         else
-            System.out.println(inputNum);
-
+            System.out.println("Not a multiple of 5 and 3.\n" + inputNum");
+                               
         //little project
 
-        String classRole = "Admin";
-        if (classRole == "Admin")
+        String classRole1 = "Admin";
+        if (classRole1 == "Admin")
             System.out.println("You're an admin");
-        else if (classRole == "Moderator")
+        else if (classRole1 == "Moderator")
             System.out.println("You're a Moderator.");
         else
             System.out.println("You're a guest.");
@@ -163,3 +163,4 @@ public class HelloWorld {
             System.out.println("The amount cannot be higher than 100, please try again.");
     }
 }
+
