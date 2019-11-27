@@ -1,5 +1,6 @@
 package Class;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class HW2 {
@@ -28,21 +29,81 @@ public class HW2 {
         //System.out.println(input);
 
         //for each loop
-        String[] fruits = {"Apple", "Banana", "Grapes"}; //for loop
-        for (int i = 0; i < fruits.length; i++) {
-            System.out.println(fruits[i]);
-        }
+        //String[] fruits = {"Apple", "Banana", "Grapes"}; //for loop
+        //for (int i = 0; i < fruits.length; i++) {
+        //System.out.println(fruits[i]);
+        //}
 
-        for (String fruit : fruits) { //for each loop
-            System.out.println(fruit); //has limitations
-        }
-            //Experiment 1
+        //for (String fruit : fruits) { //for each loop
+        //System.out.println(fruit); //has limitations
+        //}
+        //Experiment 1
 
-            String[] brands = {"Microsoft", "Apple", "Linus"};
-            for (int branding = 0; branding < brands.length; branding++) {
-                System.out.println(brands[branding]);
-            } for (String company : brands) {
-            System.out.println(company);
+        //String[] brands = {"Microsoft", "Apple", "Linus"};
+        //for (int branding = 0; branding < brands.length; branding++) {
+        //System.out.println(brands[branding]);
+        //} for (String company : brands) {
+        //System.out.println(company);
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+        //Project (Mortgage Calculator v2.0)
+
+        //Important
+
+        int principle = 0;
+        float annual = 0;
+        byte time = 0;
+        String gender = "o";
+
+        //Scanners
+
+        Scanner userPrinciple = new Scanner(System.in);
+        Scanner userGender = new Scanner(System.in);
+        Scanner userName = new Scanner(System.in);
+        Scanner userAnnual = new Scanner(System.in);
+        Scanner userTime = new Scanner(System.in);
+
+        //Privacy leaked
+
+        System.out.println("Sir Name: ");
+        String name = userName.nextLine();
+        System.out.println("Gender (M/F): ");
+        gender = userGender.nextLine().toLowerCase();
+
+        if (gender.equals("m")) {
+            System.out.println("Welcome Mr." + name + ", the system will now automatically calculate your mortgage payment.");
+        } else if (gender.equals("f")) {
+            System.out.println("Welcome Ms/Mdm." + name + ", the system will now automatically calculate your mortgage payment.");
+            
+            //Mortgage
+
+            while (true) {
+                System.out.print("Principle ($1,000 - $1,000,000): $ ");
+                principle = userPrinciple.nextInt(); //Total amount where the user input their money on.
+                if (principle >= 1000 && principle <= 1000000)
+                    break; //If user input a valid value, Java will break out of the code block.
+                System.out.println("Please enter a value greater than 1,000 and less than 1,000,000, try again.");
+                continue;
+            }
+
+            while (true) {
+                System.out.println("Annual Interest Rate: ");
+                annual = userAnnual.nextFloat();
+                if (annual >= 0 && annual <= 30)
+                    break; //If user input a valid value, Java will break out of the code block.
+                System.out.println("Please enter a value greater than 0 and less than 30, try again.");
+                continue;
+            }
+
+            while (true) {
+                System.out.println("Period (Years): ");
+                time = userTime.nextByte();
+                if (time >= 0 && time <= 30)
+                    break; //If user input a valid value, Java will break out of the code block.
+                System.out.println("Please enter a value greater than 0 and less than 30, try again.");
+                continue;
+            }
         }
     }
-}
