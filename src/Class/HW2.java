@@ -59,6 +59,7 @@ public class HW2 {
         float annual = 0;
         byte time = 0;
         byte YEAR = 12;
+        String gender = "";
 
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -79,13 +80,22 @@ public class HW2 {
 
         System.out.println("Sir Name: ");
         String name = userName.nextLine().toUpperCase();
-        System.out.println("Gender (M/F): ");
-        String gender = userGender.nextLine().toLowerCase();
 
-        if (gender.equals("m")) {
-            System.out.println("Welcome Mr." + name + ", the system will now automatically calculate your mortgage payment.");
-        } else if (gender.equals("f")) {
-            System.out.println("Welcome Ms/Mdm." + name + ", the system will now automatically calculate your mortgage payment.");
+        while (true) {
+            System.out.println("Gender (M/F): ");
+            gender = userGender.nextLine().toLowerCase();
+            if (!gender.equals("m") && !gender.equals("f")) {
+                System.out.println("Unidentified character, try again.");
+                continue;
+            }
+            if (gender.equals("m")) {
+                System.out.println("Welcome Mr." + name + ", the system will now automatically calculate your mortgage payment.");
+            break;
+            }
+            if (gender.equals("f")) {
+                System.out.println("Welcome Ms/Mdm." + name + ", the system will now automatically calculate your mortgage payment.");
+                break;
+            }
         }
 
             //Mortgage
@@ -93,28 +103,28 @@ public class HW2 {
             while (true) {
                 System.out.print("Principle ($1,000 - $1,000,000): $ ");
                 principle = userPrinciple.nextInt(); //Total amount where the user input their money on.                                //Principle
-                if (principle >= 1000 && principle <= 1000000)
-                    break; //If user input a valid value, Java will break out of the code block.
+                if (principle >= 1000 && principle <= 1000000) {
+                    break; //If user input a valid value, Java will break out of the code block. 
+                }
                 System.out.println("Please enter a value greater than 1,000 and less than 1,000,000, try again.");
-                continue;
             }
 
             while (true) {
                 System.out.println("Annual Interest Rate: ");                                                                           //Interest Rate
                 annual = userAnnual.nextFloat();
-                if (annual >= 0 && annual <= 30)
-                    break; //If user input a valid value, Java will break out of the code block.
+                if (annual >= 0 && annual <= 30) {
+                    break; //If user input a valid value, Java will break out of the code block. 
+                }
                 System.out.println("Please enter a value greater than 0 and less than 30, try again.");
-                continue;
             }
 
             while (true) {
                 System.out.println("Period (Years): ");
                 time = userTime.nextByte();                                                                                              //Time
-                if (time >= 0 && time <= 30)
+                if (time >= 0 && time <= 30) {
                     break; //If user input a valid value, Java will break out of the code block.
+                }
                 System.out.println("Please enter a value greater than 0 and less than 30, try again.");
-                continue;
             }
 
 
