@@ -50,12 +50,58 @@ public class HW2 {
 
         //Project (Mortgage Calculator v2.0)
 
+        //Previous:
+
+        //PROJECT (MORTGAGE CALCULATOR V1.0)
+
+        //Scanner
+        //Scanner userInput = new Scanner(System.in);
+        //Scanner userInputName = new Scanner(System.in);
+        //Scanner userAnnual = new Scanner(System.in);
+        //Scanner userAge = new Scanner(System.in);
+        //Scanner userTime = new Scanner(System.in);
+        //Name and Age
+        //System.out.println("Please Input your name\nName:");
+        //String name = userInputName.nextLine();
+        //System.out.print("Please Input your age:\nAge: ");
+        //byte inputAge = userAge.nextByte();
+        //Mortgage
+        //System.out.println("Welcome " + name.toUpperCase() + ", the system will automatically calculate the mortgage payment for you.");
+        //System.out.print("Principle: $");
+        //int TOTAL_AMOUNT = userInput.nextInt(); //Total amount where the user input their money on.
+        //System.out.println("You inserted " + TOTAL_AMOUNT + ", if you accidentally input the wrong digit, please restart the program ");
+        //System.out.println("Annual Interest Rate: ");
+        //float ANNUAL = userAnnual.nextFloat();
+        //float MONTHLY_PERCENTAGE = ANNUAL / 12; //This will give you each months percentage
+        //System.out.println("You inserted " + ANNUAL + ", if you accidentally input the wrong digit, please restart the program ");
+        //System.out.println("Period of Time: ");
+        //byte YEARS = userTime.nextByte();
+        //int TOTAL_YEARS = YEARS * 12;
+        //System.out.println("You inserted " + YEARS + ", if you accidentally input the wrong digit, please restart the program ");
+        //Calculate
+        //float step1 = 1 + MONTHLY_PERCENTAGE;
+        //double bracket = Math.pow(step1, TOTAL_YEARS);
+        //double stepUp = MONTHLY_PERCENTAGE * bracket;
+        //double stepDown = bracket - 1;
+        //double fractionTotal = stepUp / stepDown;
+        //double total_amount = TOTAL_AMOUNT * fractionTotal;
+        //NumberFormat currency1 = NumberFormat.getCurrencyInstance();
+        //String currency2 = currency1.format(Math.round(total_amount));
+        //System.out.println("Mortgage: " + currency2);
+        //System.out.println("Have a great day! " + name.toUpperCase())
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         //Important
 
         int principle = 0;
         float annual = 0;
         byte time = 0;
-        String gender = "o";
+        byte YEAR = 12;
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
         //Scanners
 
@@ -65,23 +111,28 @@ public class HW2 {
         Scanner userAnnual = new Scanner(System.in);
         Scanner userTime = new Scanner(System.in);
 
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
         //Privacy leaked
 
         System.out.println("Sir Name: ");
         String name = userName.nextLine();
         System.out.println("Gender (M/F): ");
-        gender = userGender.nextLine().toLowerCase();
+        String gender = userGender.nextLine().toLowerCase();
 
         if (gender.equals("m")) {
             System.out.println("Welcome Mr." + name + ", the system will now automatically calculate your mortgage payment.");
         } else if (gender.equals("f")) {
             System.out.println("Welcome Ms/Mdm." + name + ", the system will now automatically calculate your mortgage payment.");
-            
+        }
+
             //Mortgage
 
             while (true) {
                 System.out.print("Principle ($1,000 - $1,000,000): $ ");
-                principle = userPrinciple.nextInt(); //Total amount where the user input their money on.
+                principle = userPrinciple.nextInt(); //Total amount where the user input their money on.                                //Principle
                 if (principle >= 1000 && principle <= 1000000)
                     break; //If user input a valid value, Java will break out of the code block.
                 System.out.println("Please enter a value greater than 1,000 and less than 1,000,000, try again.");
@@ -89,7 +140,7 @@ public class HW2 {
             }
 
             while (true) {
-                System.out.println("Annual Interest Rate: ");
+                System.out.println("Annual Interest Rate: ");                                                                           //Interest Rate
                 annual = userAnnual.nextFloat();
                 if (annual >= 0 && annual <= 30)
                     break; //If user input a valid value, Java will break out of the code block.
@@ -99,11 +150,40 @@ public class HW2 {
 
             while (true) {
                 System.out.println("Period (Years): ");
-                time = userTime.nextByte();
+                time = userTime.nextByte();                                                                                              //Time
                 if (time >= 0 && time <= 30)
                     break; //If user input a valid value, Java will break out of the code block.
                 System.out.println("Please enter a value greater than 0 and less than 30, try again.");
                 continue;
             }
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+        //Calculation
+
+        //Monthly interested rate,
+
+        float MONTHLY_INTERESTED_RATE = annual / YEAR;
+
+        //Total Month
+
+        int TOTAL_MONTH = YEAR * time;
+
+        //Calculate
+
+        float Simplified = MONTHLY_INTERESTED_RATE + 1;
+        double monthlyPayment = Math.pow(Simplified, TOTAL_MONTH);
+        double monthlyINP = MONTHLY_INTERESTED_RATE * monthlyPayment;
+        double monthlyMinus = monthlyPayment - 1;
+        double TOTAL = principle * ( monthlyINP / monthlyMinus );
+        NumberFormat rounded= NumberFormat.getCurrencyInstance();
+        String roundedTotal = rounded.format(Math.round(TOTAL));
+
+        System.out.println("Mortgage Payment: " + roundedTotal);
+
+        
+
         }
     }
